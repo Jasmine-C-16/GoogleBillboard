@@ -20,22 +20,23 @@ public void setup()
     String digits;
     double dNum;
 
-    for (int i=0; i<e.length()-10; i++){
+    for (int i=2; i<e.length()-10; i++){
     	digits = e.substring(i,i+10);
     	dNum = Double.parseDouble(digits);
-    	//System.out.println(digits);
-    	if (isPrime(dNum)==true)
+    	
+    	if (isPrime(dNum)==true){
     		System.out.println(dNum);
-    		//break;
+    		break;
+    	}
     }
-
 }  
 
-public boolean isPrime(double dNum){     
-    for (int i=2; i<Math.sqrt(dNum); i++){
-      if (dNum%i == 0){
+public boolean isPrime(double dNum){  
+	if (dNum<2)
+		return false;   
+    for (int i=2; i<=Math.sqrt(dNum); i++){
+      if (dNum%i == 0)
         return false;
-    	}
     }
     return true;
 } 
